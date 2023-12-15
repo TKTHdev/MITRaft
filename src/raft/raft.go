@@ -133,6 +133,27 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 }
 
 
+//AppendEntries RPC arguments structure.
+type AppendEntryArgs struct{
+	term int
+	leaderId int
+	prevLogIndex int
+	prevLogTerm int
+	entries []interface{}
+	leaderCommit int
+}
+
+//AppendEntries RPC reply structure.
+type AppendEntryReply struct{
+	term int
+	success bool
+}
+
+
+
+func (rf *Raft)AppendEntries(args *AppendEntryArgs, reply *AppendEntryReply){
+	//do later 
+}
 // example RequestVote RPC arguments structure.
 // field names must start with capital letters!
 type RequestVoteArgs struct {
